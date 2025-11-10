@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Logic {
     private int WPM;
     private float accuracy;
