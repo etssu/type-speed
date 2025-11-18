@@ -3,8 +3,14 @@ public class Logic {
     private float accuracy;
     private float adjustedWPM;
 
-    public int getWPM() {
-        return WPM;
+    public void setWPM(int WPM) {
+        this.WPM = WPM;
+    }
+    public void setAccuracy(float accuracy) {
+        this.accuracy = accuracy;
+    }
+    public void setAdjustedWPM(float adjustedWPM) {
+        this.adjustedWPM = adjustedWPM;
     }
     // Main functions
     public int findWPM(int time, int symbolCount){

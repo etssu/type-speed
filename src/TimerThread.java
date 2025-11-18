@@ -1,5 +1,3 @@
-import java.time.Instant;
-import java.time.Duration;
 
 public class TimerThread implements Runnable {
     private final long seconds;
@@ -11,13 +9,16 @@ public class TimerThread implements Runnable {
         this.seconds = seconds;
     }
 
+    @Override
     public void run() {
         try{
             Thread.sleep(seconds * 1000); // sleep for (seconds * 1000) seconds
             timeUp = true;
             System.out.println(seconds + " seconds have passed!");
         }
-        catch (InterruptedException e){}
+        catch (InterruptedException e){
+            System.out.println("Timer thread has been interrupted!");
+        }
     }
 
     public boolean isTimeUp(){
