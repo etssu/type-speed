@@ -9,10 +9,12 @@ public class TypingSession {
                 "Another slightly longer test text",
                 "Text with punctuation, commas, and dots." };
 
-    // finish later
-    public boolean isFinished() {
-        // if !running || text finished
-        return !timeService.isRunning();
+    public boolean isTypingInProgress() {
+        return timeService.isRunning() && currentIndex < text.length();
+    }
+
+    public boolean isInputComplete() {
+        return currentIndex >= text.length() ? true : false;
     }
 
     // called when user types a character

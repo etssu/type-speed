@@ -38,6 +38,8 @@ public class TypingController {
                 break;
             case 3: // 12 seconds mode
                 timerThread.start();
+                session.setText();
+
                 while (timeService.isRunning()) {
                     if (timeService.getElapsedTime() >= 12 * 1000) {
                         timeService.stop();
