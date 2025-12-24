@@ -7,6 +7,7 @@ public class TimeService implements Runnable{
 
     public void stop(){ running = false; }
     public long getElapsedTime(){ return elapsedTime; }
+    public boolean isRunning(){ return running; }
 
     @Override
     public void run() {
