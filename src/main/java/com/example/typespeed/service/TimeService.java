@@ -2,7 +2,6 @@ package com.example.typespeed.service;
 
 public class TimeService implements Runnable{
     private volatile boolean running = true;
-    private long startTime;
     private long elapsedTime = 0;
 
     public void stop(){ running = false; }
@@ -11,9 +10,9 @@ public class TimeService implements Runnable{
 
     @Override
     public void run() {
-        startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         while(running){
-            elapsedTime =  System.currentTimeMillis() - startTime;
+            elapsedTime = System.currentTimeMillis() - startTime;
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {}
