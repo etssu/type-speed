@@ -19,6 +19,7 @@ public class TypingController {
         System.out.println("3. 12 seconds test");
         int choice = scanner.nextInt();
         Thread timerThread = new Thread(timeService);
+
         switch(choice) {
             case 1: // 30 seconds mode
                 timerThread.start();
@@ -39,13 +40,15 @@ public class TypingController {
             case 3: // 12 seconds mode
                 timerThread.start();
                 session.setText();
+                session.printText();
 
                 while (timeService.isRunning()) {
+                    // add reading method here
                     if (timeService.getElapsedTime() >= 12 * 1000) {
                         timeService.stop();
                     }
                 }
-                System.out.println(timeService.getElapsedTime());
+                System.out.println("Your WPM: "); // add WPM method here
                 break;
             default:
                 System.out.println("Invalid choice.");

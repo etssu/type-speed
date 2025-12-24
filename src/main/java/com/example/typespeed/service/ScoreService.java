@@ -4,11 +4,11 @@ public class ScoreService {
     private TypingSession typingSession;
     private TimeService timeService;
 
-    double getWPM(int charsTyped, int minutes) {
-        return charsTyped / minutes;
+    public double getWPM(int charsTyped, int seconds) {
+        return (double)charsTyped / 5 / ((double)seconds / 60);
     }
-    double getAccuracy(int correctChars, int totalChars){
-        return correctChars / totalChars * 100;
+    public double getAccuracy(int correctChars, int totalChars){
+        return (double)(correctChars / totalChars) * 100;
     }
 
 }

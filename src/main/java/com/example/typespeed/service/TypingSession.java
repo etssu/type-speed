@@ -1,8 +1,11 @@
 package com.example.typespeed.service;
 
+import java.util.Scanner;
+
 public class TypingSession {
     private TimeService timeService;
     private int errors = 0;
+    private int correctChars = 0;
     private int currentIndex = 0;
     private String text;
     String[] texts = { "Short test text",
@@ -14,7 +17,7 @@ public class TypingSession {
     }
 
     public boolean isInputComplete() {
-        return currentIndex >= text.length() ? true : false;
+        return currentIndex >= text.length();
     }
 
     // called when user types a character
@@ -24,6 +27,7 @@ public class TypingSession {
             errors++;
         }
         currentIndex++;
+        correctChars++;
     }
 
     public char getCurrentChar() {
@@ -39,6 +43,12 @@ public class TypingSession {
         text = getRandomText();
     }
 
-    public int getErrors() { return errors;}
+    public void printText() {
+        System.out.println(text);
+    }
+
+    public int getUserInputLen() { return currentIndex;} // currentIndex tells how many symbols a user entered
+    public int getCorrectChars() { return correctChars; }
+    public int getErrors() { return errors;}    // return amount of errors
     public int getTotalLength() { return text.length(); }
 }
